@@ -1,0 +1,39 @@
+[
+  {
+    "id": "first",
+    "label": "First Item",
+    "link": "/link/1",
+    "weight": 100
+  },
+  {
+    "id": "second",
+    "label": "Additional one",
+    "link": "/link/2",
+    "weight": 200
+  },
+  {
+    "id": "third",
+    "label": "One more link",
+    "link": "/link/3",
+    "weight": 300
+  },
+  {
+    "id": "fourth",
+    "label": "New Link",
+    "link": "/link/4",
+    "weight": 400
+
+  },
+  {
+    "id": "fifth",
+    "label": "New Link 2",
+    "link": "/link/5",
+    "weight": 500
+  },
+  {
+    "id": "sixth",
+    "label": "Archive",
+    "link": "/link/6",
+    "weight": 600
+  }
+]

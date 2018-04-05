@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import Items from '../src/index';
+import Items from '../src';
 import theme from './theme.css';
 import './index.html';
 import array from '../mocks/array.json';
+import tree from '../mocks/tree.json';
 
 class App extends PureComponent {
   state = {
@@ -13,16 +14,36 @@ class App extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Demo App</h1>
+        <h1 style={{ color: '#444' }}>React Highlight Tiny</h1>
         <input
-          placeholder="Enter query"
+          style={{
+            display: 'block',
+            lineHeight: '26px',
+            width: '300px',
+            outline: 'none',
+            fontSize: '16px',
+            margin: '10px auto',
+            padding: '0 7px',
+          }}
+          placeholder="Search"
           onChange={e => this.setState({ query: e.target.value })}
         />
-        <Items
-          items={array}
-          query={this.state.query}
-          theme={theme}
-        />
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: '50%', paddingRight: '10px' }}>
+            <Items
+              items={array}
+              query={this.state.query}
+              theme={theme}
+            />
+          </div>
+          <div style={{ width: '50%' }}>
+            <Items
+              items={tree}
+              query={this.state.query}
+              theme={theme}
+            />
+          </div>
+        </div>
       </div>
     );
   }

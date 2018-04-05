@@ -1,0 +1,77 @@
+[
+  {
+    "label": "Dashboard",
+    "link": "/dashboard",
+    "children": [{
+      "label": "Templates",
+      "link": "/dashboard/templates",
+      "children": [{
+        "label": "Old",
+        "link": "/dashboard/templates/old"
+      }]
+    }, {
+      "label": "Favorites",
+      "link": "/dashboard/favorites"
+    }]
+  },
+  {
+    "label": "Catalog",
+    "link": "/catalog",
+    "children": [{
+      "label": "Discount",
+      "link": "/catalog/discount"
+    }, {
+      "label": "Popular",
+      "link": "/catalog/popular"
+    }, {
+      "label": "Today",
+      "link": "/catalog/today"
+    }]
+  },
+  {
+    "label": "Design",
+    "link": "/design",
+    "children": [{
+      "label": "Steel Design",
+      "link": "/extensions/steel"
+    }, {
+        "label": "Dessert Design",
+        "link": "/extensions/dessert"
+    }, {
+        "label": "Hasty Design",
+        "link": "/extensions/hasty"
+    }, {
+        "label": "Bandit Design",
+        "link": "/extensions/Bandit"
+    }]
+  },
+  {
+    "label": "Extensions",
+    "link": "/extensions",
+    "children": [{
+      "label": "Basic Extensions",
+      "link": "/extensions/basic"
+    }, {
+        "label": "Advanced Extensions",
+        "link": "/extensions/advanced"
+    }]
+  },
+  {
+    "label": "System",
+    "link": "/system",
+    "children": [{
+      "label": "Performance",
+      "link": "/system/performance"
+    }, {
+      "label": "Status",
+      "link": "/system/status"
+    }, {
+      "label": "About",
+      "link": "/system/about"
+    }]
+  },
+  {
+    "label": "Help",
+    "link": "/help"
+  }
+]

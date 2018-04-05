@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import RegexpUtil from './RegexpUtils';
 
-class SearchItems extends PureComponent {
+class Items extends PureComponent {
   /**
    * Digest tree/array structure to array of links
-   * @param {Array} items to prepare
+   * @param {Array} items - to prepare
    * @returns {Array} array of filtered items
    */
   extractLinks = items => (
@@ -16,8 +16,8 @@ class SearchItems extends PureComponent {
   )
 
   /**
-   * @param {String} query String from search input
-   * @param {Array} tree items in various structures
+   * @param {string} query - String from search input
+   * @param {Array} tree - items in various structures
    * @returns {Array} list of filtered and highlighted list
    */
   filterItems = (query, tree) => {
@@ -37,21 +37,19 @@ class SearchItems extends PureComponent {
           <a
             key={`item-${idx}`}
             href={link.href}
-            className={this.props.theme.searchItem}
+            className={this.props.theme.item}
           >
-            <span>
-              {link.label.split(regexp)
-                .reduce((result, part, index) => (
-                  [
-                    ...result,
-                    <i key={`i-part-${idx}-${index}`}>{part}</i>,
-                    matches && index < matches.length && (
-                      <b key={`b-part-${idx}-${index}`}>{matches[index]}</b>
-                    ),
-                  ]
-                ), [])
-              }
-            </span>
+            {link.label.split(regexp)
+              .reduce((result, part, index) => (
+                [
+                  ...result,
+                  <i key={`i-part-${idx}-${index}`}>{part}</i>,
+                  matches && index < matches.length && (
+                    <b key={`b-part-${idx}-${index}`}>{matches[index]}</b>
+                  ),
+                ]
+              ), [])
+            }
           </a>
         );
       });
@@ -59,7 +57,7 @@ class SearchItems extends PureComponent {
 
   renderEmptyDataMessage = () => (
     <div
-      className={this.props.theme.searchItem}
+      className={this.props.theme.item}
       disabled
     >
       <span className={this.props.theme.empty}>Nothing to show</span>
@@ -80,19 +78,22 @@ class SearchItems extends PureComponent {
   }
 }
 
-SearchItems.defaultProps = {
+Items.defaultProps = {
   limit: 10,
   theme: {},
 };
 
-SearchItems.propTypes = {
+Items.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     link: PropTypes.string,
   })).isRequired,
   query: PropTypes.string.isRequired,
   limit: PropTypes.number,
-  theme: PropTypes.object, // eslint-disable-line
+  theme: PropTypes.shape({
+    item: PropTypes.string,
+    empty: PropTypes.string,
+  }),
 };
 
-export default SearchItems;
+export default Items;

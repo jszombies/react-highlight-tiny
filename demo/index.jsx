@@ -34,6 +34,7 @@ class App extends PureComponent {
               items={array}
               query={this.state.query}
               theme={theme}
+              nothingView="Nothing to show"
             />
           </div>
           <div style={{ width: '50%' }}>

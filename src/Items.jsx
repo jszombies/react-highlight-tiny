@@ -57,10 +57,10 @@ class Items extends PureComponent {
 
   renderEmptyDataMessage = () => (
     <div
-      className={this.props.theme.item}
+      className={`${this.props.theme.item} ${this.props.theme.empty}`}
       disabled
     >
-      <span className={this.props.theme.empty}>Nothing to show</span>
+      {this.props.nothingView}
     </div>
   );
 
@@ -71,7 +71,7 @@ class Items extends PureComponent {
       <div>
         {filteredLabels.length > 0
           ? filteredLabels
-          : this.renderEmptyDataMessage()
+          : this.props.nothingView && this.renderEmptyDataMessage()
         }
       </div>
     );
@@ -81,6 +81,7 @@ class Items extends PureComponent {
 Items.defaultProps = {
   limit: 10,
   theme: {},
+  nothingView: null,
 };
 
 Items.propTypes = {
@@ -90,6 +91,10 @@ Items.propTypes = {
   })).isRequired,
   query: PropTypes.string.isRequired,
   limit: PropTypes.number,
+  nothingView: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+  ]),
   theme: PropTypes.shape({
     item: PropTypes.string,
     empty: PropTypes.string,

@@ -14,7 +14,8 @@
     "build": "NODE_ENV=production babel ./src -d ./lib --ignore tests",
     "start": "webpack-dev-server --config demo/webpack.config.js",
     "lint": "./node_modules/.bin/eslint src --ext .js --ext .jsx -f table",
-    "test": "jest -c ./src/tests/jest.json"
+    "test": "jest -c ./src/tests/jest.json",
+    "prepublish": "yarn run lint && yarn run test && yarn run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

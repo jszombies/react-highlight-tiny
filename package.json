@@ -2,11 +2,16 @@
   "name": "react-highlight-tiny",
   "version": "0.1.0",
   "description": "Tiny component for highlighting",
+  "main": "lib/index.js",
   "repository": "https://github.com/zmeecer/react-highlight-tiny.git",
-  "author": "Źmicier Jaraševič <zmeecer@gmail.com>",
+  "author": {
+    "name": "Źmicier Jaraševič",
+    "email": "zmeecer@gmail.com>"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build": "NODE_ENV=production babel ./src -d ./lib --ignore tests",
     "start": "webpack-dev-server --config demo/webpack.config.js",
     "lint": "./node_modules/.bin/eslint src --ext .js --ext .jsx -f table",
     "test": "jest -c ./src/tests/jest.json"

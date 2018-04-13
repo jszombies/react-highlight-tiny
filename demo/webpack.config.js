@@ -1,6 +1,6 @@
 const path = require('path');
 
-const distDir = path.resolve(__dirname, 'build');
+const distDir = path.resolve(__dirname, 'build-demo');
 
 module.exports = {
   entry: path.resolve(__dirname, './index.jsx'),

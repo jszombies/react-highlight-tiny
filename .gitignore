@@ -1,6 +1,6 @@
 # initial
 node_modules/
-build/
+lib/
 .idea/
 .vscode/
 .DS_Store

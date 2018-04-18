@@ -8,6 +8,13 @@
     "name": "Źmicier Jaraševič",
     "email": "zmeecer@gmail.com>"
   },
+  "keywords": [
+    "react",
+    "highlight",
+    "search",
+    "regexp",
+    "tiny"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production babel ./src -d ./lib --ignore tests",

@@ -19,9 +19,15 @@
   "scripts": {
     "build": "NODE_ENV=production babel ./src -d ./lib --ignore tests",
     "start": "webpack-dev-server --config demo/webpack.config.js",
+    "demo:build": "webpack --config demo/webpack.config.js -p",
     "lint": "./node_modules/.bin/eslint src --ext .js --ext .jsx -f table",
     "test": "jest -c ./src/tests/jest.json",
-    "prepublish": "yarn run lint && yarn run test && yarn run build"
+    "prepublish": "yarn run lint && yarn run test && yarn run build",
+    "gh:_prepare": "git checkout develop && git pull origin develop --rebase",
+    "gh:_build": "yarn demo:build && cp package.json demo",
+    "gh:_commit": "git checkout -b gh-pages-update && git add demo && git commit -m `update gh pages`",
+    "gh:_push": "git filter-branch -f --subdirectory-filter demo && git push origin gh-pages-update",
+    "gh:deploy": "yarn gh:_prepare && yarn gh build && gh:_commit && yarn gh:_push"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

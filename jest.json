@@ -2,7 +2,7 @@
   "collectCoverage": true,
   "coverageReporters": ["text"],
   "collectCoverageFrom": ["<rootDir>/*.{js,jsx}"],
-  "rootDir": "../",
+  "rootDir": "packages/",
   "moduleNameMapper": {
     "^.+\\.(css|scss|sass|svg)$": "identity-obj-proxy"
   },
@@ -11,5 +11,5 @@
   "transform": {
     "^.+\\.jsx?$": "babel-jest"
   },
-  "setupFiles": ["./tests/jest.setup.js"]
+  "setupFiles": ["../jest.setup.js"]
 }

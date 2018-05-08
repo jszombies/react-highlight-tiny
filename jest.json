@@ -1,7 +1,7 @@
 {
   "collectCoverage": true,
   "coverageReporters": ["text"],
-  "collectCoverageFrom": ["<rootDir>/*.{js,jsx}"],
+  "collectCoverageFrom": ["<rootDir>/**/src/*.{js,jsx}"],
   "rootDir": "packages/",
   "moduleNameMapper": {
     "^.+\\.(css|scss|sass|svg)$": "identity-obj-proxy"

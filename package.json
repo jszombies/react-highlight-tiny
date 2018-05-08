@@ -22,9 +22,13 @@
     "build": "lerna run build --scope react-highlight-tiny-list",
     "lint": "eslint packages --ext .js,.jsx --ignore-pattern lib/ -f table",
     "test": "jest -c jest.json",
-    "demo:start": "lerna run start --scope react-highlight-tiny-demo",
-    "demo:build": "lerna run build --scope react-highlight-tiny-demo",
-    "prepublish": "yarn run lint && yarn run test && yarn run build"
+    "start": "webpack-dev-server --config demo/webpack.config.js",
+    "demo:build": "webpack --config demo/webpack.config.js -p",
+    "prepublish": "yarn run lint && yarn run test && yarn run build",
+    "gh:_build": "yarn demo:build && cp package.json demo",
+    "gh:_commit": "git checkout -b gh-pages-update && git add demo && git commit -m `update gh pages`",
+    "gh:_push": "git filter-branch -f --subdirectory-filter demo && git push origin gh-pages-update",
+    "gh:deploy": "yarn gh:_build && yarn gh:_commit && yarn gh:_push"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -34,14 +38,21 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.11",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.11",
     "lerna": "^2.11.0",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0"
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0",
+    "style-loader": "^0.20.3",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
   },
   "peerDependencies": {
     "react": "^16.3.0",

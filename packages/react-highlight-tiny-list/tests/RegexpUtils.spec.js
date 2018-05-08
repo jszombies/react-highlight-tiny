@@ -1,4 +1,4 @@
-import RegexpUtil from '../RegexpUtils';
+import RegexpUtil from '../src/RegexpUtils';
 
 const queries = [{
   key: '^',

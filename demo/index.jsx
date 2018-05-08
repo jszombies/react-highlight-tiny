@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Items from 'react-highlight-tiny-list';
-import array from 'react-highlight-tiny-mocks/array.json';
-import tree from 'react-highlight-tiny-mocks/tree.json';
+import array from '../mocks/array.json';
+import tree from '../mocks/tree.json';
 import theme from './theme.css';
 import './index.html';
 

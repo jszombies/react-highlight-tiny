@@ -19,16 +19,12 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production babel ./src -d ./lib --ignore tests",
-    "start": "webpack-dev-server --config demo/webpack.config.js",
-    "demo:build": "webpack --config demo/webpack.config.js -p",
-    "lint": "eslint packages --ext .js --ext .jsx -f table",
+    "build": "lerna run build --scope react-highlight-tiny-list",
+    "lint": "eslint packages --ext .js,.jsx --ignore-pattern lib/ -f table",
     "test": "jest -c jest.json",
-    "_prepublish": "yarn run lint && yarn run test && yarn run build",
-    "gh:_build": "yarn demo:build && cp package.json demo",
-    "gh:_commit": "git checkout -b gh-pages-update && git add demo && git commit -m `update gh pages`",
-    "gh:_push": "git filter-branch -f --subdirectory-filter demo && git push origin gh-pages-update",
-    "gh:deploy": "yarn gh:_build && yarn gh:_commit && yarn gh:_push"
+    "demo:start": "lerna run start --scope react-highlight-tiny-demo",
+    "demo:build": "lerna run build --scope react-highlight-tiny-demo",
+    "prepublish": "yarn run lint && yarn run test && yarn run build"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

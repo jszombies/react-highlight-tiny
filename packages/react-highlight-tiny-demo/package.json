@@ -17,6 +17,13 @@
         "demo"
     ],
     "license": "MIT",
+    "scripts": {
+        "start": "webpack-dev-server",
+        "build": "webpack -p",
+        "gh:_commit": "git checkout -b gh-pages-update && git add . && git commit -m `update gh pages`",
+        "gh:_push": "git push origin gh-pages-update",
+        "gh:deploy": "yarn build && yarn gh:_commit && yarn gh:_push"
+    },
     "devDependencies": {
         "babel-loader": "^7.1.4",
         "css-loader": "^0.28.11",

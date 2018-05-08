@@ -17,6 +17,9 @@
         "component"
     ],
     "license": "MIT",
+    "scripts": {
+        "build": "NODE_ENV=production babel ./ -d ./lib --ignore {tests|lib}"
+    },
     "devDependencies": {
         "babel-cli": "^6.26.0",
         "enzyme": "^3.3.0",
@@ -26,8 +29,5 @@
     },
     "peerDependencies": {
         "react": "^16.3.0"
-    },
-    "scripts": {
-        "build": "NODE_ENV=production babel ./ -d ./lib --ignore tests"
     }
 }
